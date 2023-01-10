@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import './App.css';
 import DessertList from './MullaList';
 import MullaList from './MullaList';
+import RegistrationForm from './components/RegistrationForm';
 
 const mullas = [
   {
@@ -33,7 +34,8 @@ function App() {
   return (
     <div className="App">
       <h2>List of Mama's Mula</h2>
-      <MullaList data={mullas}/>
+      {/* <MullaList data={mullas}/> */}
+      {<RegistrationForm/>}
     </div>
   )
 }
