@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import "../App.css";
 
 // uncontrolled inputs
 // const Form = () => {
@@ -34,59 +35,100 @@ import React, { useState } from 'react'
 //     )
 // }
 
+const PasswordErrorMessage = ()=>{
+    return(
+        <p className='FieldError'>Password should have atleast 8 characters</p>
+    );
+};
+
 const RegistrationForm = ()=> {
-    const [value, setValue] =("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [role, setRole] = useState("role");
+    const [Password, setPassword] = useState({
+        value: ' ',
+        isTouched: false,
+    });
+
 
     const handleChange =(e) => {
         e.preventDefault()
         console.log("Here we are!!")
-    }
+    };
+
+    const handleSubmit = ()=> {
+        alert("Account Created!");
+        clearForm();
+    };
+
+    
 
     return(
-        <form action="">
-            <label htmlFor="firstName">First Name: </label>
-            <input 
-                type="text"
-                value={value}
-                onChange={handleChange} 
-                placeholder="First name"
-            />
-            <br />
-            <label htmlFor="lastName">Last Name: </label>
-            <input 
-                type="text"
-                value={value}
-                onChange={handleChange} 
-                placeholder="Last name"
-            />
-            <br />
-            <label htmlFor="email">Email Address: </label>
-            <input 
-                type="text"
-                value={value}
-                onChange={handleChange} 
-                placeholder="Email Address"
-            />
-            <br />
-            <label htmlFor="Password">Password: </label>
-            <input 
-                type="text"
-                value={value}
-                onChange={handleChange} 
-                placeholder="Password"
-            />
-            <br />
-            <label htmlFor="Role">Role: </label>
-            <input 
-                type="text"
-                value={value}
-                onChange={handleChange} 
-                placeholder="Role"
-            />
-            <br />
-            <button>CREATE ACCOUNT</button>
-        </form>
-
+        <div className='App'>
+            <form onSubmit={handleSubmit}>
+                <fieldset>
+                    <h2>Sign Up</h2>
+                    <div className='Field'>
+                        <label>
+                            First Name <sup>*</sup>
+                        </label>
+                        <input 
+                            type="text"
+                            value={value}
+                            onChange={handleChange} 
+                            placeholder="First name"
+                        />
+                    </div>
+                    <div className='Field'>
+                        <label>
+                            Last Name <sup>*</sup>
+                        </label>
+                        <input 
+                            type="text"
+                            value={value}
+                            onChange={handleChange} 
+                            placeholder="Last name"
+                        />
+                    </div>
+                    <div className='Field'>
+                        <label>
+                            Email Address <sup>*</sup>
+                        </label>
+                        <input 
+                            type="text"
+                            value={value}
+                            onChange={handleChange} 
+                            placeholder="Email Address"
+                        />
+                    </div>
+                    <div className='Field'>
+                        <label>
+                            Password <sup>*</sup>
+                             </label>
+                        <input 
+                            type="text"
+                            value={value}
+                            onChange={handleChange} 
+                            placeholder="Password"
+                        />
+                    </div>
+                    <div className='Field'>
+                        <label>
+                            Role <sup>*</sup>
+                        </label>
+                        <select>
+                            <option value={"role"}>Role</option>
+                            <option value={"individual"}>Individual</option>
+                            <option value={"business"}>Business</option>
+                        </select>
+                    </div>
+                    <button type='submit' disabled={!getFormValid()}>
+                        CREATE ACCOUNT
+                    </button>
+                </fieldset>
+            </form>
+        </div>
     )
 }
 
