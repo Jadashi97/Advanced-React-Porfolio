@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div className="App">
-      <h2>List of Mama's Mula</h2>
+      {/* <h2>List of Mama's Mula</h2> */}
       {/* <MullaList data={mullas}/> */}
       {<RegistrationForm/>}
     </div>

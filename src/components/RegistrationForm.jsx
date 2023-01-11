@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../App.css";
+import { validateEmail } from '../utils';
 
 // uncontrolled inputs
 // const Form = () => {
@@ -46,15 +47,31 @@ const RegistrationForm = ()=> {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [role, setRole] = useState("role");
-    const [Password, setPassword] = useState({
-        value: ' ',
+    const [password, setPassword] = useState({
+        value: '',
         isTouched: false,
     });
 
+    const getFormValid = ()=> {
+        return (
+            firstName && 
+            validateEmail(email) && 
+            password.value.length >= 8 &&
+            role !== "role"
+        );
+    }
 
-    const handleChange =(e) => {
+    const clearForm = ()=> {
+        setFirstName(" ");
+        setLastName(" ");
+        setEmail(" ");
+        setPassword({
+            value: ' ',
+            isTouched: false,
+        })
         e.preventDefault()
-        console.log("Here we are!!")
+        // alert("Account created!")
+        // clearForm();
     };
 
     const handleSubmit = ()=> {
@@ -75,8 +92,10 @@ const RegistrationForm = ()=> {
                         </label>
                         <input 
                             type="text"
-                            value={value}
-                            onChange={handleChange} 
+                            value={firstName}
+                            onChange={(e)=>{
+                                setFirstName(e.target.value);
+                            }} 
                             placeholder="First name"
                         />
                     </div>
@@ -86,8 +105,10 @@ const RegistrationForm = ()=> {
                         </label>
                         <input 
                             type="text"
-                            value={value}
-                            onChange={handleChange} 
+                            value={lastName}
+                            onChange={(e)=> {
+                                setLastName(e.target.value)
+                            }} 
                             placeholder="Last name"
                         />
                     </div>
@@ -97,8 +118,10 @@ const RegistrationForm = ()=> {
                         </label>
                         <input 
                             type="text"
-                            value={value}
-                            onChange={handleChange} 
+                            value={email}
+                            onChange={(e)=> {
+                                setEmail(e.target.value)
+                            }} 
                             placeholder="Email Address"
                         />
                     </div>
@@ -107,11 +130,20 @@ const RegistrationForm = ()=> {
                             Password <sup>*</sup>
                              </label>
                         <input 
-                            type="text"
-                            value={value}
-                            onChange={handleChange} 
+                            type="password"
+                            value={password.value}
+                            onChange={(e)=> {
+                                setPassword({...password, value: e.target.value});
+                            }} 
+                            onBlur={()=>{
+                                setPassword({ ...password, isTouched: true});
+                            }}
                             placeholder="Password"
                         />
+                        {/* below checks if password is valid and length is above 8 */}
+                        {password.isTouched && password.value.length < 8 ? (
+                            <PasswordErrorMessage/>
+                        ): null}
                     </div>
                     <div className='Field'>
                         <label>
