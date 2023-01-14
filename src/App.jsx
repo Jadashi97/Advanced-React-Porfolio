@@ -6,6 +6,8 @@ import MullaList from './MullaList';
 import RegistrationForm from './components/RegistrationForm';
 import SwitchDetails from './components/SwitchDetails';
 import { ThemeProvider } from './ThemeContext';
+import LearnHooks from './components/LearnHooks';
+import SpendgiftCard from './components/SpendgiftCard';
 
 // // use this for the the Registration form
 // const mullas = [
@@ -40,7 +42,9 @@ function App() {
         {/* <h2>List of Mama's Mula</h2> */}
         {/* <MullaList data={mullas}/> */}
         {/* {<RegistrationForm/>} */}
-        <SwitchDetails/>
+        {/* <SwitchDetails/> */}
+        {/* <LearnHooks/> */}
+        <SpendgiftCard/>
       </div>
     </ThemeProvider>
   )
