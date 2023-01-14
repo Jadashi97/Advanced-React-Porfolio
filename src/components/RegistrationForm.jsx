@@ -17,24 +17,24 @@ import { validateEmail } from '../utils';
 //   )
 // }
 
-// // controlled componenets
-// const Form = ()=>{
-//     const [value, setValue] = useState(" ");
+// controlled componenets
+const Form = ()=>{
+    const [value, setValue] = useState(" ");
     
-//     const handleChange = (e)=> {
-//         setValue(e.target.value)
-//     }
+    const handleChange = (e)=> {
+        setValue(e.target.value)
+    }
 
-//     return(
-//         <form>
-//             <input
-//             value={value}
-//             onChange={handleChange}
-//             type="text"
-//             />
-//         </form>
-//     )
-// }
+    return(
+        <form>
+            <input
+            value={value}
+            onChange={handleChange}
+            type="text"
+            />
+        </form>
+    )
+}
 
 const PasswordErrorMessage = ()=>{
     return(
