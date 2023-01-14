@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const SpendgiftCard = () => {
+    const [toggle, settoggle] = useState(false);
+
     const [giftCard, setGiftCard] = useState(
         {
             firstName: "lokose",
@@ -22,6 +24,14 @@ const SpendgiftCard = () => {
         })
     }
 
+    function clickHandler(){
+        settoggle(!toggle);
+    }
+
+    useEffect(()=> {
+        document.title = toggle ? "Spend Gift Card" : "already Spent!"
+    });
+
     return (
         <div style={{padding: '40px'}}>
             <h1>Gift Card Page</h1>
@@ -36,11 +46,12 @@ const SpendgiftCard = () => {
             </p>
             {
                 giftCard.valid && (
-                    <button onClick={spendGiftCard} style={{backgroundColor: "black"}}>
+                    <button onClick={clickHandler} style={{backgroundColor: "black"}}>
                         Spend Gift Card
                     </button>
                 )
             }
+            {toggle && <h2>Spend Gift Card</h2>}
         </div>
     )
 }
