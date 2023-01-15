@@ -8,6 +8,7 @@ import SwitchDetails from './components/SwitchDetails';
 import { ThemeProvider } from './ThemeContext';
 import LearnHooks from './components/LearnHooks';
 import SpendgiftCard from './components/SpendgiftCard';
+import UseEffectPrac from './components/UseEffectPrac';
 
 // // use this for the the Registration form
 // const mullas = [
@@ -44,7 +45,8 @@ function App() {
         {/* {<RegistrationForm/>} */}
         {/* <SwitchDetails/> */}
         {/* <LearnHooks/> */}
-        <SpendgiftCard/>
+        {/* <SpendgiftCard/> */}
+        <UseEffectPrac/>
       </div>
     </ThemeProvider>
   )
