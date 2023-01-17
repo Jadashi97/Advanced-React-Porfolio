@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RadioGroup, RadioOption } from '../Radio';
+import {RadioGroup, RadioOption}  from '../Radio/index';
 
 const RadioCompo = () => {
     const [selected, setSelected] = useState("");
@@ -7,7 +7,7 @@ const RadioCompo = () => {
     return (
         <div>
             <h2>How did you hear about Mama's Restaurant?</h2>
-            <RadioGroup>
+            <RadioGroup onChange={setSelected} selected={selected}>
                 <RadioOption value="social_media">Social Media</RadioOption>
                 <RadioOption value="friends">Friends</RadioOption>
                 <RadioOption value="advertising">Advertising</RadioOption>
