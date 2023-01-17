@@ -11,6 +11,7 @@ import SpendgiftCard from './components/SpendgiftCard';
 import UseEffectPrac from './components/UseEffectPrac';
 import TheUseRefHook from './components/TheUseRefHook';
 import CustomHooks from './components/CustomHooks';
+import RadioCompo from './components/RadioCompo';
 
 // // use this for the the Registration form
 // const mullas = [
@@ -50,7 +51,9 @@ function App() {
         {/* <SpendgiftCard/> */}
         {/* <UseEffectPrac/> */}
         {/* <TheUseRefHook/> */}
-        <CustomHooks/>
+        {/* <CustomHooks/> */}
+        <RadioCompo/>
+        
       </div>
     </ThemeProvider>
   )
