@@ -6,9 +6,7 @@ export const RadioGroup = ({onChange, selected, children}) => {
     // Use React.Children.map and React.cloneElement to clone the children
     // and pass the correct props to each RadioOption
   const RadioOptions = React.Children.map((children, (chid, index))=>{
-     React.cloneElement(child, {
-
-    })
+    
   });
 
     return (
