@@ -1,9 +1,12 @@
 .App {
   display: flex;
   flex: 1;
+  flex-direction: column;
   height: 100vh;
   justify-content: center;
   align-items: center;
+  font-size: calc(10px + 2vmin);
+
 }
 
 fieldset {
@@ -75,4 +78,26 @@ button[disabled] {
   background-color: #cccccc;
   color: #666666;
   cursor: not-allowed;
+}
+
+.BasicTracker {
+  border: 1px solid black;
+  padding: 16px;
+  margin-bottom: 128px;
+}
+
+.Row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  height: 64px;
+}
+
+.Header {
+  margin: 32px;
+}
+p {
+  margin: 0;
 }

@@ -12,6 +12,7 @@ import UseEffectPrac from './components/UseEffectPrac';
 import TheUseRefHook from './components/TheUseRefHook';
 import CustomHooks from './components/CustomHooks';
 import RadioCompo from './components/RadioCompo';
+import LearnHocRender from './components/LearnHocRender';
 
 // // use this for the the Registration form
 // const mullas = [
@@ -52,7 +53,8 @@ function App() {
         {/* <UseEffectPrac/> */}
         {/* <TheUseRefHook/> */}
         {/* <CustomHooks/> */}
-        <RadioCompo/>
+        {/* <RadioCompo/> */}
+        <LearnHocRender/>
         
       </div>
     </ThemeProvider>
