@@ -12,6 +12,10 @@ const MousePosition = ({render})=> {
     useEffect(()=> {
         const handleMousePositionChange = (e) =>{
             // Use e.clientX and e.clientY to access the mouse position on the screen
+            setMousePosition({
+                x:e.clientX,
+                y: e.clientY,
+            });
         }
 
         window.addEventListener("mousemove", handleMousePositionChange);
@@ -22,37 +26,38 @@ const MousePosition = ({render})=> {
     }, []);
 
   // What should be returned here?
-    return null;
+    return render({mousePosition});
 };
 
 // This component should not receive any props
-const PanelMouseLogger = ({mousePosition})=> {
+const PanelMouseLogger = ()=> {
   // The below if statement can be removed after the render props pattern is implemented
-    if (!mousePosition){
-        return null;
-    }
     return (
         <div className='BasicTracker'>
             <p>Mouse Position</p>
-            <div className='Row'>
-                <span>x: {mousePosition.x}</span>
-                <span>y: {mousePosition.y}</span>
-            </div>
+            <MousePosition
+                render ={({mousePosition}) => (
+                    <div className='Row'>
+                        <span>x: {mousePosition.x}</span>
+                        <span>y: {mousePosition.y}</span>
+                    </div>
+                )}
+            />
         </div>
     );
-
 };
 
 // This component should not receive any props
-const PointMouseLogger = ({mousePosition}) =>{
+const PointMouseLogger = () =>{
   // The below if statement can be removed after the render props pattern is implemented
-    if(!mousePosition){
-        return null
-    }
     return(
-        <p>
-            ({mousePosition.x}, {mousePosition.y})
-        </p>
+        <MousePosition
+            render = {({mousePosition}) => (
+                <p>
+                    ({mousePosition.x}, {mousePosition.y})
+                </p>
+            )}
+        />
     );
 
 };
@@ -60,7 +65,7 @@ const PointMouseLogger = ({mousePosition}) =>{
 
 export default function LearnHocRender() {
   return (
-    <div>
+    <div className='App'>
         <header className='Header'>Mama's Restaurant</header>
         <PanelMouseLogger/>
         <PointMouseLogger/>
