@@ -1,18 +1,19 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css';
-import DessertList from './MullaList';
-import MullaList from './MullaList';
-import RegistrationForm from './components/RegistrationForm';
-import SwitchDetails from './components/SwitchDetails';
+// import DessertList from './MullaList';
+// import MullaList from './MullaList';
+// import RegistrationForm from './components/RegistrationForm';
+// import SwitchDetails from './components/SwitchDetails';
 import { ThemeProvider } from './ThemeContext';
-import LearnHooks from './components/LearnHooks';
-import SpendgiftCard from './components/SpendgiftCard';
-import UseEffectPrac from './components/UseEffectPrac';
-import TheUseRefHook from './components/TheUseRefHook';
-import CustomHooks from './components/CustomHooks';
-import RadioCompo from './components/RadioCompo';
-import LearnHocRender from './components/LearnHocRender';
+// import LearnHooks from './components/LearnHooks';
+// import SpendgiftCard from './components/SpendgiftCard';
+// import UseEffectPrac from './components/UseEffectPrac';
+// import TheUseRefHook from './components/TheUseRefHook';
+// import CustomHooks from './components/CustomHooks';
+// import RadioCompo from './components/RadioCompo';
+// import LearnHocRender from './components/LearnHocRender';
+import FeedBackForm from './components/FeedBackForm';
 
 // // use this for the the Registration form
 // const mullas = [
@@ -38,9 +39,17 @@ import LearnHocRender from './components/LearnHocRender';
 //   },
 // ];
 
+
+
 function App() {
   const [count, setCount] = useState(0)
-
+  
+  // handleSubmit for the feedback form
+  const handleSubmit = ()=>{
+    console.log("Form Submitted!");
+  }
+  
+  
   return (
     <ThemeProvider>
       <div className="App">
@@ -54,8 +63,8 @@ function App() {
         {/* <TheUseRefHook/> */}
         {/* <CustomHooks/> */}
         {/* <RadioCompo/> */}
-        <LearnHocRender/>
-        
+        {/* <LearnHocRender/> */}
+        <FeedBackForm onSubmit={handleSubmit}/>
       </div>
     </ThemeProvider>
   )
